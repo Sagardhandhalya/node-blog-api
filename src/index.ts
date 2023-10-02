@@ -1,15 +1,16 @@
-import express, { Request, Response } from 'express';
+import 'dotenv/config';
 
-const app = express();
+import { app } from './server.js';
+import { connectToDb } from './database/db.js';
+import Post from './Models/Post.js';
 
-app.get('/', (req: Request, res: Response) => {
-  res.send({ cool: true });
-});
+app.listen(5000, async () => {
+  await connectToDb();
+  const run = async () => {
+    let x = await Post.create({ title: 'cool' });
+    console.log(x);
+  };
 
-app.get('/test', (req: Request, res: Response) => {
-  res.send({ cool: 'cool again' });
-});
-
-app.listen(5000, () => {
+  await run();
   console.log('server is running....');
 });
