@@ -21,3 +21,10 @@ MONGODB_URI=mongodb://localhost/blogdb
 you can access docs here
 
 http://localhost:5000/docs
+
+To run project
+
+```
+    npm install
+    npm run start
+```
