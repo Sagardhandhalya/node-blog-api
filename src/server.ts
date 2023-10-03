@@ -1,10 +1,8 @@
-import express, { Request, Response } from 'express';
-import { postRouter } from './routes/postRoutes.js';
-import authRouter from './routes/authRoutes.js';
+import express, { Request, Response, Express } from 'express';
+import postRouter from './routes/postRoutes.js';
 
-export const app = express();
+export const app: Express = express();
 
 app.use(express.json());
 
-app.use('/v1/posts', postRouter);
-app.use('/v1/users', authRouter);
+app.use('/api/v1/posts', postRouter);

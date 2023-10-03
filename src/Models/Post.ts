@@ -14,6 +14,7 @@ const PostSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Category',
     immutable: true,
+    required: true,
   },
   updated_at: {
     type: Date,

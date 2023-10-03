@@ -1,15 +1,20 @@
-import express, { Request, Response } from 'express';
-import { getAllPosts } from '../controllers/posts/postController.js';
+import express from 'express';
+import {
+  getAllPostsController,
+  getPostByIdController,
+  createPostController,
+  updatePostController,
+  deletePostController,
+  getLatestPostsByCategoryController,
+} from '../controllers/posts/postsController.js';
 
-const postRouter = express.Router();
+const router = express.Router();
 
-postRouter.get('/', (req, res) => {
-  getAllPosts(req, res);
-});
+router.get('/', getAllPostsController);
+router.get('/latest', getLatestPostsByCategoryController);
+router.get('/:id', getPostByIdController);
+router.post('/', createPostController);
+router.put('/:id', updatePostController);
+router.delete('/:id', deletePostController);
 
-postRouter.get('/:id', (req: Request, res: Response) => {
-  const { id } = req.params;
-  res.send(`send all the post ${id}`);
-});
-
-export { postRouter };
+export default router;
