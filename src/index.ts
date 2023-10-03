@@ -7,7 +7,7 @@ import Category from './Models/Category.js';
 
 app.listen(5000, async () => {
   await connectToDb();
-  await seedDb();
+  // await seedDb();
   console.log('server is running....');
 });
 
